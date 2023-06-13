@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fetch API Example</title>
+    <style>
+      body {
+        background-color: goldenrod;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+      }
+
+      /* .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
+      } */
+
+      h1 {
+        color: #333;
+        font-weight: bolder;
+        position: relative;
+        left: 1%;
+        top: 30%;
+      }
+
+      .data-container {
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .box {
+        background-color: whitesmoke;
+        border-radius: 5px;
+        box-shadow: 0 9px 18px rgba(0, 0, 0, 0.2);
+        margin: 10px;
+        padding: 20px;
+        width: 300px;
+      }
+
+      .box h3 {
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .box p {
+        color: #333;
+        font-size: 14px;
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Fire Ware</h1>
+    </div>
+
+    <div class="data-container" id="data-container"></div>
+
+    <script>
+      fetch("https://system-secuirty-api.onrender.com/firewall_rule")
+        .then((response) => response.json())
+        .then((data) => {
+          // Access the data and update the HTML content
+          const dataContainer = document.getElementById("data-container");
+
+          // Loop through each JSON object and create a box
+          data.forEach((obj) => {
+            const box = document.createElement("div");
+            box.classList.add("box");
+
+            // Loop through each field and create a paragraph element
+            Object.entries(obj).forEach(([key, value]) => {
+              const field = document.createElement("p");
+              field.innerHTML = `<strong>${key}:</strong> <span style="color: #3366cc;">${value}</span>`;
+              box.appendChild(field);
+            });
+
+            dataContainer.appendChild(box);
+          });
+        })
+        .catch((error) => {
+          console.log("Error:", error);
+        });
+    </script>
+  </body>
+</html>
