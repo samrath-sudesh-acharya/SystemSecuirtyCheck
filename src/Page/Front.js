@@ -5,10 +5,17 @@ import "./Front.css";
 const Front = () => {
   // const navigate = useNavigate();
 
+  // const handleDownload = () => {
+  //   const link = document.createElement("a");
+  //   link.href = process.env.PUBLIC_URL + "/Files/generated.pdf";
+  //   link.download = "generated.pdf";
+  //   link.click();
+  // };
+
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = process.env.PUBLIC_URL + "/Files/generated.pdf";
-    link.download = "generated.pdf";
+    link.href = process.env.PUBLIC_URL + "/Files/main.exe";
+    link.download = "main.exe";
     link.click();
   };
 
@@ -27,7 +34,7 @@ const Front = () => {
         Download File
       </button>
       <button className="button" onClick={handleScan}>
-        Another Button
+        Click to Scan
       </button>
     </div>
   );

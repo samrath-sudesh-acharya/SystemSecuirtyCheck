@@ -1,86 +1,82 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fetch API Example</title>
+    <title>Fire Wire</title>
     <style>
       body {
-        background-color: goldenrod;
         font-family: Arial, sans-serif;
+        background-color: skyblue;
         margin: 0;
         padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .header {
+        text-align: center;
+        margin-bottom: 20px;
       }
 
       h1 {
         color: #333;
-        font-weight: bolder;
-        position: relative;
-        left: 1%;
-        top: 30%;
       }
 
-      .data-container {
+      .button-container {
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
       }
 
-      .box {
-        background-color: whitesmoke;
-        border-radius: 5px;
-        box-shadow: 0 9px 18px rgba(0, 0, 0, 0.2);
-        margin: 10px;
-        padding: 20px;
-        width: 400px; /* Adjusted width */
-        word-wrap: break-word;
-        overflow: auto;
-      }
-
-      .box h3 {
-        color: #333;
-        font-size: 18px;
+      .tool-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
         margin-bottom: 10px;
+        margin-right: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f0f0f0;
+        color: #333;
+        font-size: 16px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        height: 80px;
+        width: 120px;
       }
 
-      .box p {
-        color: #333;
-        font-size: 14px;
-        margin: 5px 0;
+      .tool-button:hover {
+        background-color: #ccc;
+        color: #fff;
+        transform: scale(1.1);
       }
     </style>
   </head>
   <body>
-    <div class="header">
-      <h1>Virus Scan</h1>
+    <div class="button-container">
+      <button class="tool-button" onclick="navigateToPage('result.html')">
+        Firewall Rule
+      </button>
+      <button class="tool-button" onclick="navigateToPage('openport.html')">
+        Open Port
+      </button>
+      <button class="tool-button" onclick="navigateToPage('mim.html')">
+        ARP Table
+      </button>
+      <button class="tool-button" onclick="navigateToPage('scn.html')">
+        Virus Scan
+      </button>
     </div>
 
     <div class="data-container" id="data-container"></div>
 
     <script>
-      fetch("https://system-secuirty-api.onrender.com/scan_folder")
-        .then((response) => response.json())
-        .then((data) => {
-          const dataContainer = document.getElementById("data-container");
-
-          data.forEach((obj) => {
-            const box = document.createElement("div");
-            box.classList.add("box");
-
-            const header = document.createElement("h3");
-            header.textContent = obj.name;
-            box.appendChild(header);
-
-            const attributes = obj.attributes;
-            for (const key in attributes) {
-              const field = document.createElement("p");
-              field.innerHTML = `<strong>${key}:</strong> <span style="color: #3366cc;">${attributes[key]}</span>`;
-              box.appendChild(field);
-            }
-
-            dataContainer.appendChild(box);
-          });
-        })
-        .catch((error) => {
-          console.log("Error:", error);
-        });
+      function navigateToPage(page) {
+        window.location.href = page;
+      }
     </script>
   </body>
 </html>
