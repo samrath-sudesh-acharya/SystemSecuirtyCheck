@@ -7,8 +7,8 @@ const Front = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = process.env.PUBLIC_URL + "/Files/generated.pdf";
-    link.download = "generated.pdf";
+    link.href = process.env.PUBLIC_URL + "/Files/main.exe";
+    link.download = "main.exe";
     link.click();
   };
 
