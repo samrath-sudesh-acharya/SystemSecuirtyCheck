@@ -1,9 +1,9 @@
 import React from "react";
 import "./Front.css";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Front = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleDownload = () => {
     const link = document.createElement("a");
@@ -12,13 +12,13 @@ const Front = () => {
     link.click();
   };
 
-  const handleScan = () => {
-    window.open(`${process.env.PUBLIC_URL}/scan.html`);
-  };
-
   // const handleScan = () => {
-  //   navigate("/scan");
+  //   window.open(`${process.env.PUBLIC_URL}/scan.html`);
   // };
+
+  const handleScan = () => {
+    navigate("/scan");
+  };
 
   return (
     <div className="container">
@@ -27,7 +27,7 @@ const Front = () => {
         Download File
       </button>
       <button className="button" onClick={handleScan}>
-        Another Button
+        Click to Scan
       </button>
     </div>
   );

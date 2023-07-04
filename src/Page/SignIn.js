@@ -39,32 +39,34 @@ const SignIn = () => {
   };
 
   return (
-    <div className="auth-form-container">
-      <h1>Sign In</h1>
-      <form action="POST">
-        <div className="form-group">
-          <label>Email:</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="form-group">
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="button" onClick={handleSignIn}>
-          Sign In
-        </button>
-      </form>
-      <p className="sign-up-link">
-        Don't have an account? <span onClick={handleSignUp}>Sign Up</span>
-      </p>
+    <div className="main">
+      <div className="auth-form-container">
+        <h1>Sign In</h1>
+        <form action="POST">
+          <div className="form-group">
+            <label>Email:</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="form-group">
+            <label>Password:</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <button type="button" onClick={handleSignIn}>
+            Sign In
+          </button>
+        </form>
+        <p className="sign-up-link">
+          Don't have an account? <span onClick={handleSignUp}>Sign Up</span>
+        </p>
+      </div>
     </div>
   );
 };
