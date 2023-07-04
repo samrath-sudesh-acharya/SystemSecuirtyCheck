@@ -50,9 +50,18 @@
         font-size: 14px;
         margin: 5px 0;
       }
+      .loading {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 20px;
+      }
     </style>
   </head>
   <body>
+    <div class="loading" id="loading">Loading...</div>
     <div class="header">
       <h1>Open Port</h1>
     </div>
@@ -60,9 +69,12 @@
     <div class="data-container" id="data-container"></div>
 
     <script>
+      const loadingElement = document.getElementById("loading");
+      loadingElement.style.display = "block";
       fetch("https://system-secuirty-api.onrender.com/open_ports")
         .then((response) => response.json())
         .then((data) => {
+          loadingElement.style.display = "none";
           // Access the data and update the HTML content
           const dataContainer = document.getElementById("data-container");
 
