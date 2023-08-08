@@ -1,3 +1,5 @@
+![banner](https://github.com/samrath-sudesh-acharya/SystemSecuirtyCheck/assets/76547134/6eb07376-76a9-4180-872b-e4d29c01076e)
+
 The project will begin with a thorough analysis of the current threat landscape and an assessment of existing cybersecurity measures within the target organization. This evaluation will identify vulnerabilities, potential attack vectors, and areas requiring immediate attention. Based on this analysis, a multi-layered cybersecurity strategy will be devised, incorporating the following key components:
 
 [1] A Scanner and Banner Extractor: Open Port Scanner <br/>
